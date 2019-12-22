@@ -1,0 +1,2 @@
+VSCode must open to the SAME root as specified in Settings: hack.remote.workspacePath
+Passwordless SSH into remote host must be enabled: basically ssh-gen-key on localhost, then copy ~/.ssh/id_rsa.pub to remote host ~/.ssh/authorzed_keys
