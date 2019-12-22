@@ -1,5 +1,7 @@
-<?hh
+<?hh // strict
 namespace Library;
+
+require HH\Lib;
 
 /**
  * An example of a general-purpose implementation that includes the optional
@@ -52,15 +54,15 @@ class Psr4AutoloaderClass {
      *
      * @var array
      */
-    protected $prefixes = array();
+    protected dict<string, vec<string>> $prefixes = dict[];
 
     /**
      * Register loader with SPL autoloader stack.
      *
      * @return void
      */
-    public function register() {
-        spl_autoload_register(array($this, 'loadClass'));
+    public function register(): void {
+        \spl_autoload_register(array($this, 'loadClass'));
     }
 
     /**
@@ -74,23 +76,29 @@ class Psr4AutoloaderClass {
      * than last.
      * @return void
      */
-    public function addNamespace($prefix, $base_dir, $prepend = false) {
+    public function addNamespace(
+        string $prefix,
+        string $base_dir,
+        bool $prepend = false,
+    ): void {
         // normalize namespace prefix
-        $prefix = trim($prefix, '\\').'\\';
+        $prefix = \trim($prefix, '\\').'\\';
 
         // normalize the base directory with a trailing separator
-        $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR).'/';
+        $base_dir = \rtrim($base_dir, \DIRECTORY_SEPARATOR).'/';
 
         // initialize the namespace prefix array
-        if (isset($this->prefixes[$prefix]) === false) {
-            $this->prefixes[$prefix] = array();
+        if (idx($this->prefixes, $prefix) === null) {
+            $this->prefixes[$prefix] = vec[];
         }
 
         // retain the base directory for the namespace prefix
         if ($prepend) {
-            array_unshift($this->prefixes[$prefix], $base_dir);
+            $this->prefixes[$prefix] =
+                \Vec\concat(vec[$base_dir], $this->prefixes[$prefix]);
+            \array_unshift($this->prefixes[$prefix], $base_dir);
         } else {
-            array_push($this->prefixes[$prefix], $base_dir);
+            \array_push($this->prefixes[$prefix], $base_dir);
         }
     }
 

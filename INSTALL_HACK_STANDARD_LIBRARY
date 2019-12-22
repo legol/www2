@@ -1,0 +1,4 @@
+install composer first.
+then
+php composer.phar  require hhvm/hhvm-autoload
+php composer.par require hhvm/hsl

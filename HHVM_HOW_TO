@@ -43,3 +43,7 @@ machine attach 2
 
 
 each time in VIM, after editing, run !hh_client
+
+
+Install Hack Standard Library
+https://github.com/hhvm/hsl/ 
