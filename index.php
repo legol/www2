@@ -13,6 +13,9 @@ async function main(): Awaitable<void> {
 
   echo "111<div><B>jay1:Hello World!1111222</B></div>";
 
+  $a = \HH\Lib\Vec\concat(vec[1, 2], vec[3, 4]);
+  var_dump($a);
+
   var_dump($_GET); // Element 'foo' is string(1) "a"
   var_dump($_POST); // Element 'bar' is string(1) "b"
   var_dump($_REQUEST); // Does not contain elements 'foo' or 'bar'    
