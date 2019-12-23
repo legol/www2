@@ -11,7 +11,12 @@ async function main(): Awaitable<void> {
   // jay1:Hello World!1111
   // array(1) { ["test"]=> string(4) "abcd" } array(0) { } array(1) { ["test"]=> string(4) "abcd" }
 
-  echo "13211<div><B>jay1:Hello World!1111222</B></div>";
+  header('Access-Control-Allow-Origin: *');
+  header(
+    'Access-Control-Allow-Headers: Content-Type, Authorization, Content-Length, X-Requested-With',
+  );
+
+  echo "aaaa<div><B>jay1:Hello World!1111222</B></div>";
 
   $a = \HH\Lib\Vec\concat(vec[1, 2], vec[3, 4]);
   var_dump($a);
