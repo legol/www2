@@ -1,4 +1,10 @@
+If want to use \HH\Lib\Vec\concat(), etc, hack standard library is needed.
+To have it, hack autoloader is needed.
+So:
+
 install composer first.
 then
-php composer.phar  require hhvm/hhvm-autoload
-php composer.par require hhvm/hsl
+php composer.phar require hhvm/hhvm-autoload
+php composer.phar require hhvm/hsl
+
+

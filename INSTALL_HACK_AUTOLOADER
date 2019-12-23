@@ -1,0 +1,28 @@
+php composer.phar require hhvm/hhvm-autoload
+
+modify ./hh_autoload.json 
+
+{
+    "roots": [
+        "src/",
+        "tests/"
+    ]
+}
+
+run auto loader
+./vendor/bin/hh-autoload
+and it will update
+./vendor/autoload.hack
+
+
+use auto loader:
+in index.php
+
+<?hh // strict
+require_once(__DIR__.'/vendor/autoload.hack');
+
+<<__EntryPoint>>
+async function main(): Awaitable<void> {
+  Facebook\AutoloadMap\initialize();
+  exit(0);
+}

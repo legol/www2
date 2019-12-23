@@ -2,5 +2,9 @@
     "require": {
         "hhvm/hhvm-autoload": "^2.0",
         "hhvm/hsl": "^4.36"
+    },
+    "require-dev": {
+        "hhvm/hacktest": "^2.0",
+        "facebook/fbexpect": "^2.7"
     }
 }
